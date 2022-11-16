@@ -1,0 +1,9 @@
+.vscode
+**/__pycache__
+
+sbatch_scripts
+logs
+*.log
+data
+pseudo_mask/result/*
+pseudo_mask/sess

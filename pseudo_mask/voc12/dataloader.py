@@ -57,7 +57,11 @@ def get_img_path(img_name, voc12_root):
 
 def load_img_name_list(dataset_path):
 
-    img_name_list = np.loadtxt(dataset_path, dtype=np.int32)
+    img_name_list = np.loadtxt(dataset_path, dtype=str)
+
+    # Process names to int32 '2007_000032' -> 200700032
+    convert = np.vectorize(lambda s: np.int32(s.strip('_')))
+    img_name_list = convert(img_name_list)
 
     return img_name_list
 
